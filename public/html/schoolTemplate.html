@@ -1,15 +1,15 @@
 <div class="card">
     <div class="card-info">
-        <h2 class="name">{{}}</h2>
-        <h6 class="type">{{}}</h6>
-        <h6 class="specialization">{{}}</h6>
-    
-        <p class="cost">{{}}</p>
-        <p class="rating">{{}}</p>  
+        <p class="card-id">ID : {{id}}</p>
+        <h2 class="name">Название : {{name}}</h2>
+        <h6 class="type">Тип учреждения : {{type}}</h6>
+        <h6 class="specialization">Специализация : {{specialization}}</h6>
+        <p class="cost">Стоимость подписки в месяц : {{cost}}</p>
+        <p class="rating">Рейтинг : {{rating}}</p>  
         <div class="review-info">
-            <p class="review-number">{{}}</p>
-            <div class="reviews">{{}}</div>
+            <p class="review-number">Кол-во отзывов : {{reviewsNum}}</p>
+            <div class="reviews">Отзывы : {{reviews}}</div>
         </div>
     </div>
-    <img class="card-img" src="/img/{{}}" alt="">
+    <img class="card-img" src="/img/{{img}}" alt="">
 </div>
