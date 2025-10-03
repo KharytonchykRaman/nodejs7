@@ -4,12 +4,12 @@ const url = require("url");
 const { contentTypes } = require("../data/staticData");
 
 const control = (req, res) => {
-  const pathname = url.parse(req.url, true).pathname;
+  const pathname = decodeURI(url.parse(req.url, false).pathname);
   const filePath = path.join(__dirname, "..", "public", pathname);
   fs.access(filePath, fs.constants.R_OK, (err) => {
     if (err) {
       res.writeHead(404, { "Content-Type": "text/html; charset=utf-8" });
-      res.end();
+      res.end("<h1>Not found</h1>");
     } else {
       const extname = path.extname(filePath);
       const contentType = contentTypes[extname] || "application/octet-stream";
@@ -22,4 +22,4 @@ const control = (req, res) => {
   });
 };
 
-module.exports = { control };
+module.exports = control;

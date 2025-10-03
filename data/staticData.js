@@ -15,9 +15,9 @@ const contentTypes = {
   ".json": "application/json",
 };
 
-const schoolNames = [];
+const schoolNames = ["1","2","3"];
 
-const reviews = [];
+const reviews = ["r1","r2"];
 
 const schoolTypes = [
   "Дошкольное",
@@ -28,7 +28,7 @@ const schoolTypes = [
 ];
 
 const specializations = [
-  "Гуманитарное",
+  "Гуманитарное ",
   "Техническое",
   "Спортивное",
   "Медицинское",

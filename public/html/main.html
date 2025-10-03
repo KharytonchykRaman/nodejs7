@@ -1,20 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Schools List</title>
-    <link rel="stylesheet" href="/css/main.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/css/main.css" />
+    <script defer src="/js/main.js"></script>
+  </head>
+  <body>
     <aside>
-        <div class="filters">
-
-        </div>
+      <div class="filters">
+        <input type="text" class="min-rating-input" placeholder="мин рейтинг" />
+        <input
+          type="text"
+          class="max-rating-input"
+          placeholder="макс рейтинг"
+        />
+        <input type="text" class="min-cost-input" placeholder="мин цена" />
+        <input type="text" class="max-cost-input" placeholder="макс цена" />
+        <input
+          type="text"
+          class="min-reviews-input"
+          placeholder="мин число отзывов"
+        />
+        <label for="type-select">Выберите тип УО :</label>
+        <select name="type" id="type-select">
+          <option value="all">Все варианты</option>
+          <option value="preschool">Дошкольное</option>
+          <option value="primary">Начальное</option>
+          <option value="secondary">Среднее</option>
+          <option value="specialized">Профильное</option>
+          <option value="tertiary">Высшее</option>
+        </select>
+        <label for="specialization-select">Выберите специализацию УО :</label>
+        <select name="specialization" id="specialization-select">
+          <option value="all">Все варианты</option>
+          <option value="humanitarian">Гуманитарное</option>
+          <option value="technical">Техническое</option>
+          <option value="sports">Спортивное</option>
+          <option value="medical">Медицинское</option>
+          <option value="economical">Экономическое</option>
+        </select>
+      </div>
+      <button id="filterButton">Фильтровать</button>
     </aside>
-    <main>
-        {{content}}
-    </main>
-</body>
+    <main id="main"></main>
+  </body>
+
+  <template id="schoolTemplate">
+    <div class="card">
+      <div class="card-info">
+        <p class="card-id">ID : {{id}}</p>
+        <h2 class="name">Название : {{name}}</h2>
+        <h6 class="type">Тип учреждения : {{type}}</h6>
+        <h6 class="specialization">Специализация : {{specialization}}</h6>
+        <p class="cost">Стоимость подписки в месяц : {{cost}}</p>
+        <p class="rating">Рейтинг : {{rating}}</p>
+        <div class="review-info">
+          <p class="review-number">Кол-во отзывов : {{reviewsNum}}</p>
+          <label>Отзывы : </label>
+          <textarea class="reviews" readonly>{{reviews}}</textarea>
+        </div>
+      </div>
+      <img class="card-img" src="/img/{{img}}" alt="" />
+    </div>
+  </template>
 </html>

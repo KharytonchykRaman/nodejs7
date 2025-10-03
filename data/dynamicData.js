@@ -23,12 +23,15 @@ const createSchoolObj = () => {
     reviewsNum: reviewsNum,
     reviews: Array.from(
       { length: reviewsNum },
-      (review) =>
-        `<p class="review">${reviews[getRndInt(0, reviews.length - 1)]}</p>`
+      () => reviews[getRndInt(0, reviews.length - 1)]
     ),
     type: schoolTypes[getRndInt(0, schoolTypes.length - 1)],
     specialization: specializations[getRndInt(0, specializations.length - 1)],
   };
 };
 
-module.exports = {createSchoolObj}
+const getSchools = () => {
+  return Array.from({ length: getRndInt(30, 45) }, () => createSchoolObj());
+};
+
+module.exports = { getSchools };
